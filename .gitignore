@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code session state (project-local plans, settings, transcripts)
+.claude/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies (falls später relevant)
+node_modules/
+
+# Build outputs (falls später relevant)
+dist/
+build/
+.cache/
+
+# Temp files
+*.tmp
+*.bak
