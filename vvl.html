@@ -12,10 +12,10 @@
   <meta name="theme-color" content="#0A0A0B">
 
   <title>VVL-Automatik für Mobilfunk-Fachhändler — Petsch Digital</title>
-  <meta name="description" content="SMS-Erinnerung für auslaufende Vertragsverlängerungen im Mobilfunk-Fachhandel. Liest deine Provisionsabrechnung, erinnert 30 Tage vorher, du gibst jede SMS selbst frei. Läuft im Echtbetrieb bei einem Vodafone-Fachhändler.">
+  <meta name="description" content="Erkennt automatisch, bei welchem Kunden die Vertragsverlängerung ansteht, und erinnert rechtzeitig. Du gibst jede SMS selbst frei, kein Massenversand, kein Systemwechsel. Läuft im Echtbetrieb bei einem Vodafone-Fachhändler.">
 
   <meta property="og:title" content="VVL-Automatik für Mobilfunk-Fachhändler — Petsch Digital">
-  <meta property="og:description" content="SMS-Erinnerung für auslaufende Vertragsverlängerungen. Liest deine Provisionsabrechnung, erinnert 30 Tage vorher, du gibst jede SMS selbst frei.">
+  <meta property="og:description" content="Erkennt automatisch anstehende Vertragsverlängerungen und erinnert rechtzeitig. Du gibst jede SMS selbst frei, kein Massenversand, kein Systemwechsel.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://petsch-digital.com/vvl.html">
 
@@ -125,8 +125,8 @@
       <div class="container-wide">
         <div class="hero__inner">
           <span class="eyebrow">VVL-Automatik für Mobilfunk-Fachhändler</span>
-          <h1>Deine Verlängerungen stehen in der Abrechnung.<br>Nur findest du sie zu spät.</h1>
-          <p class="lead">Das System liest deine Provisionsabrechnung, erkennt jede auslaufende Vertragsverlängerung und erinnert dich 30 Tage vorher. Du gibst jede SMS einzeln frei, kein Massenversand. Läuft im Echtbetrieb bei einem Vodafone-Fachhändler.</p>
+          <h1>Jede fällige Verlängerung meldet sich von selbst.<br>Du gibst nur noch frei.</h1>
+          <p class="lead">Das System erkennt automatisch, bei welchem Kunden die Vertragsverlängerung ansteht, und erinnert dich rechtzeitig. Du gibst jede SMS einzeln frei, kein Massenversand. Kein neues Kassensystem, keine Kundenliste, die du von Hand pflegen musst. Läuft im Echtbetrieb bei einem Vodafone-Fachhändler.</p>
           <div class="cta-row">
             <a class="btn" href="https://calendly.com/steffenpetsch/20min" target="_blank" rel="noopener">20-Minuten-Gespräch &rarr;</a>
             <a class="btn btn--secondary" href="#ablauf">Wie es funktioniert</a>
@@ -139,8 +139,8 @@
     <section class="section">
       <div class="container">
         <span class="eyebrow">Das Problem</span>
-        <h2>Jede übersehene Verlängerung ist verschenkter Umsatz</h2>
-        <p style="margin-top: var(--space-6); font-size: 1.0625rem;">Die Verlängerungen stehen längst in deiner monatlichen Abrechnung. Aber sie von Hand herauszusuchen, jeden Vertrag durchzugehen und rechtzeitig den richtigen Kunden anzusprechen, das geht im Tagesgeschäft oft unter. Der Kunde verlängert woanders oder gar nicht, und die Provision ist weg. Nicht weil dir der Kunde gefehlt hätte, sondern weil der richtige Zeitpunkt unbemerkt vorbeigezogen ist.</p>
+        <h2>Im Tagesgeschäft geht die Verlängerung unter</h2>
+        <p style="margin-top: var(--space-6); font-size: 1.0625rem;">Eine Verlängerung anzustoßen heißt: jeden Vertrag im Blick behalten, den richtigen Moment erwischen, den Kunden rechtzeitig ansprechen. Im Tagesgeschäft geht das unter. Die Alternative ist, jemanden genau dafür abzustellen, das kostet Zeit und Geld, und auch dabei wird mal etwas übersehen oder vergessen. Das System übernimmt diesen Teil, ohne Pause und ohne zu vergessen. So geht dir keine Verlängerung mehr verloren.</p>
       </div>
     </section>
 
@@ -162,7 +162,7 @@
             <label class="rechner__field">
               <span class="rechner__label">Provision pro Verlängerung</span>
               <span class="rechner__euro">
-                <input type="number" id="r-provision" value="50" min="0" step="5" inputmode="numeric" aria-label="Provision pro Verlängerung in Euro">
+                <input type="number" id="r-provision" value="100" min="0" step="10" inputmode="numeric" aria-label="Provision pro Verlängerung in Euro">
                 <span class="rechner__suffix">€</span>
               </span>
             </label>
@@ -170,11 +170,11 @@
           <div class="rechner__output">
             <div class="rechner__result">
               <span class="rechner__result-label">Verlängerungs-Umsatz pro Monat</span>
-              <span class="rechner__result-value" id="r-monat">1.000 €</span>
+              <span class="rechner__result-value" id="r-monat">2.000 €</span>
             </div>
             <div class="rechner__result rechner__result--sub">
               <span class="rechner__result-label">Auf zwölf Monate</span>
-              <span class="rechner__result-value" id="r-jahr">12.000 €</span>
+              <span class="rechner__result-value" id="r-jahr">24.000 €</span>
             </div>
           </div>
         </div>
@@ -194,13 +194,13 @@
         <div class="ablauf-grid">
           <div class="ablauf-card">
             <div class="ablauf-number">01</div>
-            <h3 class="ablauf-title">Abrechnung einlesen</h3>
-            <p class="ablauf-body">Du lädst deine monatliche Provisionsabrechnung hoch. Das System liest sie aus und baut daraus deinen Kundenbestand mit den jeweiligen Vertragsenden. Kein Abtippen, kein zweites System.</p>
+            <h3 class="ablauf-title">Deine Quelle anbinden</h3>
+            <p class="ablauf-body">Du gibst dem System die Daten, die du ohnehin hast, ob als Provisionsabrechnung, als Export oder als Tabelle. Es liest sie aus und baut daraus deinen Kundenbestand mit den Vertragsenden. Einmal eingerichtet, kein Abtippen.</p>
           </div>
           <div class="ablauf-card">
             <div class="ablauf-number">02</div>
-            <h3 class="ablauf-title">Rechtzeitig erinnert werden</h3>
-            <p class="ablauf-body">30 Tage bevor ein Vertrag ausläuft, zeigt dir das System, wen du ansprechen solltest. Du siehst die anstehenden Verlängerungen auf einen Blick, statt sie aus der Abrechnung zu suchen.</p>
+            <h3 class="ablauf-title">Automatisch erkennen und erinnern</h3>
+            <p class="ablauf-body">Das System rechnet die Vertragsenden aus und meldet sich 30 Tage vorher mit den anstehenden Verlängerungen. Du musst nichts durchsuchen und nichts im Kalender markieren, die Liste ist da, wenn du sie brauchst.</p>
           </div>
           <div class="ablauf-card">
             <div class="ablauf-number">03</div>
@@ -233,22 +233,22 @@
     <section class="section">
       <div class="container-wide">
         <div class="section__head">
-          <span class="eyebrow">Warum es sicher ist</span>
-          <h2>Gebaut für Kontrolle, nicht für Masse</h2>
+          <span class="eyebrow">Der Unterschied</span>
+          <h2>Es läuft neben dem, was du schon hast</h2>
         </div>
 
         <div class="ablauf-grid">
           <article class="card card--compact">
+            <h3 class="ablauf-title">Kein Systemwechsel</h3>
+            <p class="ablauf-body">Das System läuft neben deinem bestehenden Ablauf. Du musst keine neue Kassen- oder Verwaltungssoftware einführen und nichts umstellen. Es kommt additiv dazu.</p>
+          </article>
+          <article class="card card--compact">
+            <h3 class="ablauf-title">Keine doppelte Pflege</h3>
+            <p class="ablauf-body">Du führst keinen zweiten Kundenstamm und vergibst keine Status von Hand. Die Quelle, die du dem System gibst, ist die Grundlage, den aktuellen Stand hält es selbst.</p>
+          </article>
+          <article class="card card--compact">
             <h3 class="ablauf-title">Server in Deutschland</h3>
             <p class="ablauf-body">Das System läuft auf einem eigenen Server in einem deutschen Rechenzentrum. Deine Kundendaten bleiben in Deutschland, der Zugang ist über VPN und Zwei-Faktor abgesichert.</p>
-          </article>
-          <article class="card card--compact">
-            <h3 class="ablauf-title">Kein Blindversand</h3>
-            <p class="ablauf-body">Jede SMS gibst du vorher frei, mit voller Textvorschau. Das System sendet nur an Kunden, für die eine Einwilligung hinterlegt ist. Ohne diesen Status verschickt es nichts.</p>
-          </article>
-          <article class="card card--compact">
-            <h3 class="ablauf-title">Auf deinen Shop anpassbar</h3>
-            <p class="ablauf-body">Aktuell ausgelegt auf die Vodafone-Abrechnung, anpassbar auf andere Abrechnungssysteme. Zusatzfunktionen wie eine Geburtstags-SMS lassen sich ergänzen.</p>
           </article>
         </div>
 
@@ -263,7 +263,7 @@
       <div class="container">
         <span class="eyebrow">Was es kostet</span>
         <h2>Einrichtung plus laufender Betrieb</h2>
-        <p style="margin-top: var(--space-6); font-size: 1.0625rem;">Du zahlst einmal für die Einrichtung auf deinen Shop und danach einen laufenden Betrag für Betrieb und Wartung, also dafür, dass das System Monat für Monat zuverlässig läuft und gepflegt wird. Der genaue Umfang richtet sich nach deinem Abrechnungssystem und den Funktionen, die du brauchst. Den Preis klären wir im Gespräch, ehrlich und ohne Überraschung danach.</p>
+        <p style="margin-top: var(--space-6); font-size: 1.0625rem;">Du zahlst einmal für die Einrichtung auf deinen Shop und danach einen laufenden Betrag für Betrieb und Wartung, also dafür, dass das System Monat für Monat zuverlässig läuft und gepflegt wird. Der genaue Umfang richtet sich nach deiner Datenquelle und den Funktionen, die du brauchst. Den Preis klären wir im Gespräch, ehrlich und ohne Überraschung danach.</p>
       </div>
     </section>
 
@@ -278,7 +278,7 @@
         <div class="faq">
           <details>
             <summary>Funktioniert das auch für O2- oder Telekom-Shops?</summary>
-            <p>Aktuell ist das System auf die Vodafone-Provisionsabrechnung ausgelegt, dort läuft es im Echtbetrieb. Andere Abrechnungssysteme lassen sich anbinden, das ist dann eine Anpassung an dein Format. Ob und wie das in deinem Fall geht, klären wir im Gespräch, bevor du dich festlegst.</p>
+            <p>Aktuell ist das System auf die Vodafone-Provisionsabrechnung ausgelegt, dort läuft es im Echtbetrieb. Andere Quellen und Formate lassen sich anbinden, das ist dann eine Anpassung an dein Format. Ob und wie das in deinem Fall geht, klären wir im Gespräch, bevor du dich festlegst.</p>
           </details>
           <details>
             <summary>Wie ist das mit der Einwilligung der Kunden geregelt?</summary>
@@ -286,11 +286,11 @@
           </details>
           <details>
             <summary>Was kostet das?</summary>
-            <p>Einmalige Einrichtung auf deinen Shop plus ein laufender Betrag für Betrieb und Wartung. Der Umfang hängt von deinem Abrechnungssystem und deinen Wunschfunktionen ab, deshalb nennen wir den Preis im Gespräch und nicht pauschal vorab.</p>
+            <p>Einmalige Einrichtung auf deinen Shop plus ein laufender Betrag für Betrieb und Wartung. Der Umfang hängt davon ab, womit du arbeitest und welche Funktionen du brauchst, deshalb nennen wir den Preis im Gespräch und nicht pauschal vorab.</p>
           </details>
           <details>
             <summary>Wie lange dauert die Einrichtung?</summary>
-            <p>Bei einem Abrechnungssystem, das bereits unterstützt wird, geht es schneller als bei einem neuen Format, das erst angebunden werden muss. Den realistischen Rahmen für deinen Fall sage ich dir nach dem Erstgespräch, bevor irgendetwas verbindlich wird.</p>
+            <p>Bei einer Datenquelle, die schon unterstützt wird, ist das System in der Regel innerhalb von drei Tagen einsatzbereit. Muss ein neues Format erst angebunden werden, planen wir etwas mehr Zeit ein. Den Rahmen für deinen Fall sage ich dir nach dem Erstgespräch, bevor etwas verbindlich wird.</p>
           </details>
           <details>
             <summary>Was passiert mit meinen Kundendaten?</summary>
