@@ -194,6 +194,13 @@ h1 {
   }
 }
 
+/* Ab 480px: Obergrenze, damit das Wort in die Textspalte passt (616px Spalte, Wort = 10,4em) */
+@media (min-width: 480px) {
+  h1.h1-long {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+}
+
 h2 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   letter-spacing: var(--letter-spacing-tight);
