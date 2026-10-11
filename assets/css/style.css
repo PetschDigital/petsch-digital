@@ -845,7 +845,7 @@ main {
 
 @media (min-width: 720px) {
   .site-footer__grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -880,10 +880,6 @@ main {
 
 .site-footer a:hover {
   color: var(--text-primary);
-}
-
-.site-footer__badge {
-  display: block;
 }
 
 .site-footer__copyright {
@@ -1249,33 +1245,4 @@ main {
 .ablauf-body {
   color: var(--text-secondary);
   line-height: var(--line-height-body);
-}
-
-/* ---------- Compliance badge (Prighter) ---------- */
-.compliance-badge {
-  max-width: 160px;
-  height: auto;
-  display: block;
-  margin-bottom: 0.5rem;
-  opacity: 0.85;
-  transition: opacity var(--transition);
-}
-
-.compliance-badge:hover {
-  opacity: 1;
-}
-
-.compliance-badge-caption {
-  font-size: 0.6875rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-.compliance-badge-caption a {
-  color: var(--text-muted);
-  text-decoration: underline;
-}
-
-.compliance-badge-caption a:hover {
-  color: var(--text-secondary);
 }
