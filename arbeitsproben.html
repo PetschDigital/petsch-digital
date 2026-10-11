@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0A0A0B">
+
+  <title>Arbeitsproben | Steffen Petschaelis</title>
+  <meta name="description" content="Vier Projekte mit Status und Beleg: VVL-Automatik im Echtbetrieb, Tresen als Testsystem, Recherche-Team mit KI-Agenten, Kinospot für 24/7 Sicherheit.">
+
+  <meta property="og:title" content="Arbeitsproben | Steffen Petschaelis">
+  <meta property="og:description" content="Vier Projekte mit Status und Beleg: VVL-Automatik im Echtbetrieb, Tresen als Testsystem, Recherche-Team mit KI-Agenten, Kinospot für 24/7 Sicherheit.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://petsch-digital.com/arbeitsproben">
+  <meta property="og:image" content="https://petsch-digital.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arbeitsproben | Steffen Petschaelis">
+  <meta name="twitter:description" content="Vier Projekte mit Status und Beleg: VVL-Automatik im Echtbetrieb, Tresen als Testsystem, Recherche-Team mit KI-Agenten, Kinospot für 24/7 Sicherheit.">
+  <meta name="twitter:image" content="https://petsch-digital.com/og-image.png">
+
+  <link rel="canonical" href="https://petsch-digital.com/arbeitsproben">
+
+  <link rel="preload" href="/assets/Fonts/Geist/Geist-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Seitenspezifische Styles der Arbeitsproben -->
+  <style>
+    .ap-stand {
+      margin-top: var(--space-6);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Karten untereinander */
+    .ap-list {
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    /* Karte: schmal Text über Medienfläche, breit Text links, Medienfläche rechts */
+    .ap-card {
+      display: grid;
+      gap: var(--space-8);
+      padding: var(--space-6);
+    }
+    .ap-card > * { min-width: 0; }
+    .ap-card[id] { scroll-margin-top: 32px; }
+    .ap-card h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      margin-bottom: var(--space-4);
+    }
+    @media (min-width: 720px) {
+      .ap-card { padding: var(--space-8); }
+    }
+    @media (min-width: 900px) {
+      .ap-card {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+        align-items: center;
+        gap: var(--space-12);
+      }
+    }
+
+    /* Faktenliste */
+    .ap-facts {
+      margin-top: var(--space-6);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+    .ap-facts li + li { margin-top: var(--space-3); }
+    .ap-facts strong { color: var(--text-primary); }
+
+    .ap-card .cta-row { margin-top: var(--space-8); }
+
+    /* Vorschaubild mit Label */
+    .ap-media {
+      position: relative;
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+    .ap-media:hover { border-color: var(--border-strong); }
+    .ap-media img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+    .ap-media__label {
+      position: absolute;
+      left: var(--space-3);
+      bottom: var(--space-3);
+      padding: var(--space-1) var(--space-3);
+      background: var(--bg);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Panel statt Bild (Live-Demo) */
+    .ap-panel {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+    }
+    .ap-panel p { margin-bottom: var(--space-6); }
+
+    /* Abschluss */
+    .ap-cta { margin-top: var(--space-16); }
+    .cta-block .cta-row { justify-content: center; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container-wide site-header__inner">
+      <a href="/" class="site-header__logo">petsch<span class="wordmark-dot">.</span>digital</a>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="/#profil">Profil</a>
+        <a href="/#werdegang">Werdegang</a>
+        <a href="/arbeitsproben" aria-current="page">Arbeitsproben</a>
+        <a href="/vvl">VVL-Tool</a>
+        <a href="/#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Kopf -->
+    <section class="hero">
+      <div class="container-wide">
+        <div class="hero__inner">
+          <span class="eyebrow">Arbeitsproben</span>
+          <h1>Was ich gebaut habe</h1>
+          <p class="lead">Vier Projekte, jeweils mit Status und Beleg. Was im Einsatz läuft, steht als Echtbetrieb da, was ein Testsystem ist, als Testsystem.</p>
+          <p class="ap-stand">Stand der Angaben: 11. Oktober 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-wide">
+        <div class="ap-list">
+
+          <!-- VVL-Automatik -->
+          <article class="card ap-card" id="vvl">
+            <div>
+              <span class="eyebrow">Im Echtbetrieb</span>
+              <h2>VVL-Automatik für Mobilfunk-Fachhändler</h2>
+              <p>Erkennt, bei welchen Kunden eines Fachhändlers die Vertragsverlängerung ansteht, und schlägt die Erinnerungs-SMS vor. Jede SMS gibt der Händler einzeln frei, es gibt keinen Massenversand.</p>
+              <ul class="ap-facts">
+                <li><strong>Status:</strong> Läuft seit Juli 2026 bei zwei Fachhändlern, je Händler eine eigene Instanz.</li>
+                <li><strong>Stack:</strong> Python, Flask, SQLite; eigener Server je Händler (Hetzner).</li>
+                <li><strong>Betrieb:</strong> Überwachung mit Alarm.</li>
+                <li><strong>Beleg:</strong> Die Demo läuft mit Beispieldaten und verschickt keine SMS.</li>
+              </ul>
+              <div class="cta-row">
+                <a class="btn btn--secondary" href="/vvl">Mehr zur Lösung &rarr;</a>
+              </div>
+            </div>
+            <div class="ap-panel">
+              <span class="eyebrow">Live-Demo</span>
+              <p>Zum Ausprobieren. Zugang: demo2026</p>
+              <a class="btn" href="https://demo.petsch-digital.com/login" target="_blank" rel="noopener">Demo öffnen &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Tresen -->
+          <article class="card ap-card" id="tresen">
+            <div>
+              <span class="eyebrow">Testsystem, in Entwicklung</span>
+              <h2>Tresen: Software für Handyläden</h2>
+              <p>Kassen- und Warenwirtschaftssystem für den Mobilfunk-Fachhandel, vom Lieferschein über Bestand und Kasse bis zum Kunden und seinem Vertrag.</p>
+              <ul class="ap-facts">
+                <li><strong>Status:</strong> Läuft als Testsystem mit Testdaten, noch kein Release. Die fiskalische Signatur ist im Video simuliert.</li>
+                <li><strong>Stack:</strong> Django, PostgreSQL mit Mandantentrennung auf Datenbankebene (Row Level Security), HTMX.</li>
+                <li><strong>Arbeitsweise:</strong> KI-Agenten schreiben den Code, die Systementscheidungen treffe ich, automatische Tests sichern das Ergebnis ab.</li>
+                <li><strong>Beleg:</strong> Video eines Ladentags im Testsystem.</li>
+              </ul>
+            </div>
+            <a class="ap-media" href="https://youtu.be/O59-yfbZAoQ" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/img/arbeitsprobe-tresen.png" width="1280" height="720" loading="lazy" alt="Vorschaubild: Tresen, Software für Handyläden, vom Lieferschein über Bestand und Kasse zum Kunden">
+              <span class="ap-media__label">Video ansehen</span>
+            </a>
+          </article>
+
+          <!-- Recherche-Team -->
+          <article class="card ap-card" id="recherche-team">
+            <div>
+              <span class="eyebrow">Eigenprojekt</span>
+              <h2>Recherche-Team: KI-Agenten in n8n mit eingebautem Prüfer</h2>
+              <p>Ein Planer zerlegt die Frage, Worker recherchieren, eine Synthese fasst zusammen und ein Kritiker prüft das Ergebnis. Es gibt höchstens zwei Runden.</p>
+              <ul class="ap-facts">
+                <li><strong>Gezeigter Lauf:</strong> Frage zum Stand der KI im deutschen Mittelstand 2026, gut fünf Minuten, 0,43&nbsp;$ Kosten.</li>
+                <li><strong>Stack:</strong> n8n, Claude (Haiku und Sonnet) über die Anthropic API, Brave Search und Jina Reader.</li>
+                <li><strong>Kritiker:</strong> Runde 1 meldete 7 Befunde, davon 4 schwer. Runde 2 meldete 4, davon 2 schwer.</li>
+                <li><strong>Grenze:</strong> Der Kritiker prüft, ob Belege vorhanden sind, nicht, ob sie stimmen. Den letzten Blick hat ein Mensch.</li>
+              </ul>
+            </div>
+            <a class="ap-media" href="https://youtu.be/HOsUCFizFaA" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/img/arbeitsprobe-recherche-team.png" width="1280" height="720" loading="lazy" alt="Vorschaubild: Recherche-Team, KI-Agenten in n8n mit eingebautem Prüfer">
+              <span class="ap-media__label">Video ansehen</span>
+            </a>
+          </article>
+
+          <!-- Kinospot -->
+          <article class="card ap-card" id="kinospot">
+            <div>
+              <span class="eyebrow">Videoproduktion</span>
+              <h2>Kinospot für 24/7 Sicherheit</h2>
+              <p>Werbespot, 25 Sekunden, 4K, Cinemascope 2,39:1, 5.1 Surround. Konzept „Der unsichtbare Schutzschild“: vom Familienabend in die Sicherheitsleitstelle.</p>
+              <ul class="ap-facts">
+                <li><strong>Entstehung:</strong> Bilder KI-generiert (Veo 3.1, Flow, Nano Banana Pro), Musik, Sprecher und Soundeffekte mit ElevenLabs, Postproduktion und DCP-Export in DaVinci Resolve Studio 20.</li>
+                <li><strong>Kunde:</strong> 24/7 Sicherheit, Bielefeld.</li>
+                <li><strong>Status:</strong> Abgeschlossen 2026, veröffentlicht mit Freigabe des Kunden.</li>
+              </ul>
+            </div>
+            <a class="ap-media" href="https://youtu.be/dy25G9FR-k0" target="_blank" rel="noopener noreferrer">
+              <img src="/assets/img/arbeitsprobe-kinospot.png" width="1280" height="720" loading="lazy" alt="Vorschaubild: Kinospot für 24/7 Sicherheit, Werbefilm">
+              <span class="ap-media__label">Video ansehen</span>
+            </a>
+          </article>
+
+        </div>
+
+        <!-- Abschluss -->
+        <div class="cta-block ap-cta">
+          <span class="eyebrow">Kontakt</span>
+          <h2>Fragen zu einem Projekt?</h2>
+          <p>Zu jedem Projekt gebe ich gern mehr Auskunft.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://calendly.com/steffenpetsch/erstgesprach" target="_blank" rel="noopener">Gespräch vereinbaren &rarr;</a>
+            <a class="btn btn--secondary" href="mailto:steffen@petsch-digital.com">E-Mail schreiben</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-wide site-footer__bar">
+      <p class="site-footer__legal">© 2026 Petsch Digital LLC · 2880 W Oakland Park Blvd, Ste 225C, Oakland Park, FL 33311, USA</p>
+      <ul class="site-footer__links">
+        <li><a href="https://www.linkedin.com/in/petsch-digital/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

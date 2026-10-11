@@ -113,11 +113,61 @@
       #profil .muster-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
-    /* Im Einsatz: eine Karte, zentriert, nicht volle Breite */
-    .muster-grid--single {
+    /* Arbeitsproben: vier Kacheln, schmal eine Spalte, ab 720 px zwei */
+    .ap-tiles {
+      display: grid;
       grid-template-columns: 1fr;
-      max-width: var(--container-text);
-      margin-inline: auto;
+      gap: var(--space-6);
+    }
+    @media (min-width: 720px) {
+      .ap-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .ap-tile {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: var(--space-6);
+      color: var(--text-primary);
+    }
+    .ap-tile:hover { color: var(--text-primary); }
+    .ap-tile:focus-visible { border-radius: var(--radius-lg); }
+    .ap-tile__media {
+      display: block;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: var(--space-6);
+      transition: border-color var(--transition);
+    }
+    .ap-tile:hover .ap-tile__media { border-color: var(--border-strong); }
+    .ap-tile__media img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ap-tile__media--panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-elevated);
+    }
+    .ap-tile__panel-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+    .ap-tile .eyebrow { margin-bottom: var(--space-2); }
+    .ap-tile__title { margin-bottom: var(--space-2); }
+    .ap-tile__sub {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
     }
 
     /* Werdegang: Zeitraum statt Nummer */
@@ -176,6 +226,7 @@
       <nav class="site-nav" aria-label="Hauptnavigation">
         <a href="#profil">Profil</a>
         <a href="#werdegang">Werdegang</a>
+        <a href="/arbeitsproben">Arbeitsproben</a>
         <a href="/vvl">VVL-Tool</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -199,7 +250,7 @@
             </ul>
             <div class="cta-row">
               <a class="btn" href="https://calendly.com/steffenpetsch/erstgesprach" target="_blank" rel="noopener">Gespräch vereinbaren &rarr;</a>
-              <a class="btn btn--secondary" href="#werdegang">Werdegang ansehen</a>
+              <a class="btn btn--secondary" href="/arbeitsproben">Arbeitsproben ansehen</a>
             </div>
           </div>
           <img class="hero__portrait" src="/assets/img/portrait.jpg" alt="Steffen Petschaelis" width="720" height="960">
@@ -235,21 +286,47 @@
       </div>
     </section>
 
-    <!-- Im Einsatz -->
-    <section class="section">
+    <!-- Arbeitsproben -->
+    <section class="section" id="arbeitsproben">
       <div class="container-wide">
         <div class="section__head section__head--center">
-          <span class="eyebrow">Im Einsatz</span>
-          <h2>Was schon läuft</h2>
+          <span class="eyebrow">Arbeitsproben</span>
+          <h2>Vier Projekte mit Beleg</h2>
+          <p class="section__lead">Jedes mit Status, Stack und Video oder Live-Demo.</p>
         </div>
 
-        <div class="muster-grid muster-grid--single">
-          <article class="card muster-card">
-            <span class="eyebrow eyebrow--muted">Im Echtbetrieb</span>
-            <h3 class="muster-card__title">VVL-Automatik für Mobilfunk-Fachhändler</h3>
-            <p class="muster-card__desc">Erkennt automatisch, bei welchen Kunden die Vertragsverlängerung ansteht, und schlägt die Erinnerungs-SMS vor. Jede SMS wird einzeln freigegeben, kein Massenversand. Läuft produktiv bei zwei Vodafone-Fachhändlern.</p>
-            <a class="btn btn--secondary btn--block" href="/vvl">VVL-Lösung ansehen &rarr;</a>
-          </article>
+        <div class="ap-tiles">
+          <a class="card ap-tile" href="/arbeitsproben#vvl">
+            <span class="ap-tile__media ap-tile__media--panel"><span class="ap-tile__panel-label">Live-Demo</span></span>
+            <span class="eyebrow">Im Echtbetrieb</span>
+            <h3 class="ap-tile__title">VVL-Automatik</h3>
+            <span class="ap-tile__sub">Vertragsverlängerung für Mobilfunk-Fachhändler</span>
+          </a>
+
+          <a class="card ap-tile" href="/arbeitsproben#tresen">
+            <span class="ap-tile__media"><img src="/assets/img/arbeitsprobe-tresen.png" alt="" width="1280" height="720" loading="lazy"></span>
+            <span class="eyebrow">Testsystem, in Entwicklung</span>
+            <h3 class="ap-tile__title">Tresen</h3>
+            <span class="ap-tile__sub">Software für Handyläden</span>
+          </a>
+
+          <a class="card ap-tile" href="/arbeitsproben#recherche-team">
+            <span class="ap-tile__media"><img src="/assets/img/arbeitsprobe-recherche-team.png" alt="" width="1280" height="720" loading="lazy"></span>
+            <span class="eyebrow">Eigenprojekt</span>
+            <h3 class="ap-tile__title">Recherche-Team</h3>
+            <span class="ap-tile__sub">KI-Agenten in n8n mit eingebautem Prüfer</span>
+          </a>
+
+          <a class="card ap-tile" href="/arbeitsproben#kinospot">
+            <span class="ap-tile__media"><img src="/assets/img/arbeitsprobe-kinospot.png" alt="" width="1280" height="720" loading="lazy"></span>
+            <span class="eyebrow">Videoproduktion</span>
+            <h3 class="ap-tile__title">Kinospot für 24/7 Sicherheit</h3>
+            <span class="ap-tile__sub">Werbefilm, 25 Sekunden, 4K</span>
+          </a>
+        </div>
+
+        <div class="cta-row" style="justify-content: center; margin-top: var(--space-8);">
+          <a class="btn btn--secondary" href="/arbeitsproben">Alle Arbeitsproben ansehen &rarr;</a>
         </div>
       </div>
     </section>
@@ -300,28 +377,13 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container-wide">
-      <div class="site-footer__grid">
-        <div>
-          <h4>Diensteanbieter</h4>
-          <p>
-            Petsch Digital LLC<br>
-            2880 W Oakland Park Blvd<br>
-            Ste 225C, Oakland Park<br>
-            FL 33311, USA
-          </p>
-        </div>
-        <div>
-          <h4>Rechtliches</h4>
-          <ul>
-            <li><a href="/datenschutz">Datenschutz</a></li>
-            <li><a href="/impressum">Impressum</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="site-footer__copyright">
-        © 2026 Petsch Digital LLC
-      </div>
+    <div class="container-wide site-footer__bar">
+      <p class="site-footer__legal">© 2026 Petsch Digital LLC · 2880 W Oakland Park Blvd, Ste 225C, Oakland Park, FL 33311, USA</p>
+      <ul class="site-footer__links">
+        <li><a href="https://www.linkedin.com/in/petsch-digital/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+      </ul>
     </div>
   </footer>
 </body>
